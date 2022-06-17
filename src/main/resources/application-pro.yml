@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://1.117.201.149:3306/blog?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: wusl
+    password: Zwlghhh.0
+
+
+    #初始化大小，最小，最大
+    dbcp2:
+      initial-size: 5
+      min-idle: 5
+      max-idle: 20
+      max-total: 8
+      max-wait-millis: 6000
+      #配置获取连接等待超时的时间
+      test-while-idle: true
+      validation-query: SELECT 1
+      time-between-eviction-runs-millis: 3600000
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+logging:
+  level:
+    root: warn
+    com.wusl: info
+  file:
+    path: log/blog-pro.log
+server:
+  port: 80
